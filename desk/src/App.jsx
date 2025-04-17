@@ -22,7 +22,7 @@ function App() {
       description: "Description of Task 3",
       isCompleted: false,
     },
-  ])
+  ]);
 
   function onTaskClick(id) {
     const newTasks = tasks.map((task) => {
@@ -39,12 +39,37 @@ function App() {
     setTasks(newTasks);
   }
 
+  function onAddTaskSubmit(title, description) {
+    const newTask = {
+      id: tasks.length + 1,
+      title,
+      description,
+      isCompleted: false,
+    };
+    setTasks([...tasks, newTask]);
+  }
+  
   return (
     <div className="w-screen h-screen bg-sky-950 flex justify-center p-6">
       <div className="w-[500px]">
-        <h1 className="text-3xl text-slate-100 font-bold text-center">Gerenciador de Tarefas</h1>
-        <AddTask />
-        <Tasks tasks={tasks} onTaskClick={onTaskClick} onDeleteTaskClick={onDeleteTaskClick}/>
+        <h1 className="text-3xl text-slate-100 font-bold text-center">
+          Gerenciador de Tarefas
+        </h1>
+        <p className="text-slate-100 text-center">
+          Gerencie suas tarefas de forma simples e rápida!
+        </p>
+
+        <h2 className="text-slate-100 font-bold text-xl mt-4">
+          Adicionar Tarefa
+        </h2>
+        <AddTask onAddTaskSubmit={onAddTaskSubmit} />
+
+        <h2 className="text-slate-100 font-bold text-xl mt-4">Tarefas</h2>
+        <Tasks
+          tasks={tasks}
+          onTaskClick={onTaskClick}
+          onDeleteTaskClick={onDeleteTaskClick}
+        />
       </div>
     </div>
   );

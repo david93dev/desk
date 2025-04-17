@@ -1,17 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 
-const AddTask = () => {
+const AddTask = ({onAddTaskSubmit}) => {
+
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
   return (
 
-    <form className="bg-slate-200 p-6 rounded-md mt-2 mb-2 flex flex-col gap-2">
+    <div className="bg-slate-200 p-6 rounded-md flex flex-col gap-2">
     <input 
     type="text" 
     placeholder="Digite o título da tarefa!" 
-    className="border border-slate-300 focus:border-sky-400 px-4 py-2">  
-    </input>
+    className="border border-slate-300 focus:border-sky-400 focus:outline-none px-4 py-2"
+    value={title}
+    onChange={(event) => setTitle(event.target.value)}
+    />
 
-    <textarea placeholder="Digite a descrição da tarefa!" className="w-full h-24"></textarea>
-  </form>
+    <textarea
+    placeholder="Digite a descrição da tarefa!" 
+    className=" border border-slate-300 focus:border-sky-400 focus:outline-none px-4 py-2 h-32"
+    value={description}
+    onChange={(event) => setDescription(event.target.value)}
+    />
+
+    <button 
+    onClick={() => onAddTaskSubmit(title, description)}
+    className="bg-sky-800 hover:bg-sky-700 text-white p-2 rounded-md px-4 py-2">Adicionar</button>
+  </div>
   )
 };
 
