@@ -38,14 +38,14 @@ const AddTask = ({ onAddTaskSubmit }) => {
 
       <input
         type="date"
-        className="border border-slate-300 focus:border-sky-400 focus:outline-none px-4 py-2"
+        className="border border-slate-300 focus:border-sky-400 focus:outline-none px-4 py-2 w-full"
         value={date}
         onChange={(e) => setDate(e.target.value)}
       />
 
       <input
         type="time"
-        className="border border-slate-300 focus:border-sky-400 focus:outline-none px-4 py-2"
+        className="border border-slate-300 focus:border-sky-400 focus:outline-none px-4 py-2 w-full"
         value={time}
         onChange={(e) => setTime(e.target.value)}
       />
