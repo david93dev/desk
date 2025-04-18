@@ -17,6 +17,10 @@ const router = createBrowserRouter([
     path: "/task",
     element: <TaskPage />,
   },
+  {
+    path: "/:day",
+    element: <App />
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(

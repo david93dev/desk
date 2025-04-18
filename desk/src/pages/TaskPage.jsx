@@ -8,6 +8,8 @@ const TaskPage = () => {
   const title = searchParams.get("title");
   const description = searchParams.get("description");
   const navigate = useNavigate();
+  const date = searchParams.get("date");
+  const time = searchParams.get("time");
 
   return (
     <div className="w-screen min-h-screen bg-sky-900 p-6 flex justify-center">
@@ -23,6 +25,9 @@ const TaskPage = () => {
         </div>
 
         <div className="bg-slate-200 p-4 rounded-md break-words">
+          <p className="text-slate-600 mb-2">
+            📅 {date} às 🕒 {time}
+          </p>
           <h2 className="text-slate-800 text-xl font-bold mb-3">{title}</h2>
           <p className="text-slate-600">{description}</p>
         </div>
