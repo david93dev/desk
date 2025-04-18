@@ -39,7 +39,7 @@ function App() {
   }
   
   return (
-    <div className="w-screen h-screen bg-sky-950 flex justify-center p-6">
+    <div className="w-screen min-h-screen bg-sky-950 flex justify-center p-6">
       <div className="w-[500px]">
         <Title>Gerenciador de Tarefas</Title>
         <p className="text-slate-100 text-center">
