@@ -1,28 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddTask from "./components/AddTask";
 import Tasks from "./components/Tasks";
-
+import {v4} from 'uuid';
+import { use } from "react";
+import { Heading3 } from "lucide-react";
+import Title from "./components/Title";
+ 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "Estudar React",
-      description: "Description of Task 1",
-      isCompleted: false,
-    },
-    {
-      id: 2,
-      title: "Estudar JavaScript",
-      description: "Description of Task 2",
-      isCompleted: false,
-    },
-    {
-      id: 3,
-      title: "Estudar CSS",
-      description: "Description of Task 3",
-      isCompleted: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   function onTaskClick(id) {
     const newTasks = tasks.map((task) => {
@@ -41,7 +30,7 @@ function App() {
 
   function onAddTaskSubmit(title, description) {
     const newTask = {
-      id: tasks.length + 1,
+      id: v4(),
       title,
       description,
       isCompleted: false,
@@ -52,9 +41,7 @@ function App() {
   return (
     <div className="w-screen h-screen bg-sky-950 flex justify-center p-6">
       <div className="w-[500px]">
-        <h1 className="text-3xl text-slate-100 font-bold text-center">
-          Gerenciador de Tarefas
-        </h1>
+        <Title>Gerenciador de Tarefas</Title>
         <p className="text-slate-100 text-center">
           Gerencie suas tarefas de forma simples e rápida!
         </p>

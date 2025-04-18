@@ -11,7 +11,7 @@ const AddTask = ({onAddTaskSubmit}) => {
     <input 
     type="text" 
     placeholder="Digite o título da tarefa!" 
-    className="border border-slate-300 focus:border-sky-400 focus:outline-none px-4 py-2"
+    className="border border-slate-300 focus:border-sky-400 focus:outline-none px-4 py-2 "
     value={title}
     onChange={(event) => setTitle(event.target.value)}
     />
@@ -24,8 +24,16 @@ const AddTask = ({onAddTaskSubmit}) => {
     />
 
     <button 
-    onClick={() => onAddTaskSubmit(title, description)}
-    className="bg-sky-800 hover:bg-sky-700 text-white p-2 rounded-md px-4 py-2">Adicionar</button>
+    onClick={() => {
+      if (!title.trim() || !description.trim()) {
+        alert("Preencha todos os campos!");
+        return;
+      }
+      onAddTaskSubmit(title, description)
+      setTitle("");
+      setDescription(""); 
+    }}
+    className="bg-sky-950 hover:bg-sky-600 text-white p-2 rounded-md px-4 py-2">Adicionar</button>
   </div>
   )
 };

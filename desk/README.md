@@ -1,53 +1,66 @@
-# 📋 Gerenciador de Tarefas com React
+📝 Gerenciador de Tarefas
 
-Este é um projeto simples de gerenciador de tarefas feito com **React** e estilizado com **Tailwind CSS**.
+Um aplicativo web simples e eficiente para organizar suas tarefas do dia a dia. Feito com React, com armazenamento local usando localStorage, navegação via React Router, e interface moderna com Tailwind CSS.
+🚀 Funcionalidades
 
----
+    ✅ Adicionar novas tarefas com título e descrição
 
-## ✨ Funcionalidades
+    ✅ Visualizar a lista de tarefas
 
-- ✅ Adicionar tarefa (ainda em desenvolvimento)
-- 📝 Marcar tarefa como concluída
-- 🗑️ Deletar tarefa
-- 🎨 Interface moderna e responsiva com Tailwind
+    ✅ Marcar tarefas como concluídas (com estilo line-through)
 
----
+    ✅ Visualizar detalhes de cada tarefa em uma página separada
 
-## 🚀 Como rodar o projeto
+    🗑️ Excluir tarefas da lista
 
-1. Clone o repositório:
+    💾 Persistência de dados no navegador com localStorage
 
-```bash
-git clone https://github.com/seu-usuario/nome-do-repo.git
-cd nome-do-repo
-
-2. Instale as dependências:
-
-npm install
-
-3. Inicie o servidor local:
-
-npm run dev
-
-A aplicação vai abrir automaticamente em: http://localhost:5173
-📁 Estrutura de Arquivos
-
-src/
-├── App.jsx
-├── components/
-│   ├── AddTask.jsx
-│   └── Tasks.jsx
-└── main.jsx
-
-🧩 Tecnologias Utilizadas
+🧩 Tecnologias utilizadas
 
     React
 
-    Vite
+    React Router DOM
 
     Tailwind CSS
 
     Lucide Icons
+
+    UUID
+
+📁 Estrutura do projeto
+
+src/
+├── components/
+│   ├── AddTask.jsx
+│   ├── Button.jsx
+│   ├── Tasks.jsx
+│   └── Title.jsx
+├── pages/
+│   └── TaskPage.jsx
+├── App.jsx
+└── main.jsx
+
+📦 Instalação
+
+# Clone o repositório
+git clone https://github.com/seu-usuario/gerenciador-de-tarefas.git
+
+# Acesse a pasta do projeto
+cd gerenciador-de-tarefas
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
+npm run dev
+
+    💡 O projeto usa Vite para build e desenvolvimento rápido.
+
+🌐 Navegação
+
+    / – Página principal com lista de tarefas e formulário de adição
+
+    /task – Página de detalhes de uma tarefa (usa query params)
 
 🧑‍💻 Autor
 

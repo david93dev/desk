@@ -1,9 +1,20 @@
 import { ChevronRightIcon } from 'lucide-react';
 import { TrashIcon } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import Button from './Button';
 
 const Tasks = ({tasks, onTaskClick, onDeleteTaskClick}) => {
-  return (
+  const navigate = useNavigate();
 
+  function onSeeDetailsClick(Task) {
+    const queryParams = new URLSearchParams();
+    queryParams.set("title", Task.title);
+    queryParams.set("description", Task.description);
+    navigate(`/task?${queryParams.toString()}`);
+  }
+
+  
+  return (
     <ul className="space-y-4 bg-slate-200 p-5 rounded-md">
       {tasks.map((task) => (
         <li key={task.id} className="flex gap-2" >
@@ -13,14 +24,13 @@ const Tasks = ({tasks, onTaskClick, onDeleteTaskClick}) => {
             {task.title}
             </button>
 
-          <button className="bg-sky-800  hover:bg-sky-700 text-white p-2 rounded-md">
+          <Button onClick={() => onSeeDetailsClick(task)}>
             <ChevronRightIcon />
-          </button >
+          </Button >
 
-          <button onClick={() => onDeleteTaskClick(task.id)} 
-          className="bg-sky-800  hover:bg-sky-700 text-white p-2 rounded-md">
+          <Button onClick={() => onDeleteTaskClick(task.id)}>
             <TrashIcon />
-          </button>
+          </Button>
         </li>
       ))}    
     </ul>
